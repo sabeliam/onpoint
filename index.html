@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.min.css">
+
+    <title>Onpoint</title>
+</head>
+
+<body>
+    <ul id="myMenu">
+        <li data-menuanchor="block1" class="active"><a href="#block1">1</a></li>
+        <li data-menuanchor="block2"><a href="#block2">2</a></li>
+        <li data-menuanchor="block3"><a href="#block3">3</a></li>
+    </ul>
+    <div class="next">
+        <p>Листайте вниз</p>
+        <svg id='arrow' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="95.5px" height="51.5px">
+        <path fill-rule="evenodd"  stroke="rgb(255, 255, 255)" stroke-width="5px" stroke-linecap="round" stroke-linejoin="miter" fill="none"
+         d="M5.785,5.500 L46.996,42.880 L87.183,5.500 "/>
+        </svg>
+    </div>
+    <div id="fullpage">
+        <section class="section page1" data-anchor="block1">
+            <div class="circle" id="circle1">
+                <p>Цель по HbA1c</p>
+                <div class="inner"></div>
+                <div class="middle"></div>
+                <div class="outer"></div>
+            </div>
+            <div class="circle" id="circle2">
+                <p>Гипогликемия</p>
+                <div class="inner"></div>
+                <div class="middle"></div>
+                <div class="outer"></div>
+            </div>
+            <div class="circle" id="circle3">
+                <p>СС риски</p>
+                <div class="inner"></div>
+                <div class="middle"></div>
+                <div class="outer"></div>
+            </div>
+            <div class="circle" id="circle4">
+                <p>Осложнения СД</p>
+                <div class="inner"></div>
+                <div class="middle"></div>
+                <div class="outer"></div>
+            </div>
+            <div class="content">
+                <h2>Всегда ли цели терапии СД2 на поверхности?</h2>
+            </div>
+        </section>
+        <section class="section page2" data-anchor="block2">
+            <div class="ice">
+            </div>
+        </section>
+        <section class="section page3" data-anchor="block3">
+            <p>kekes</p>
+        </section>>
+
+
+</body>
+<script src="jquery-3.4.1.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            anchors: ['block1', 'block2', 'block3'],
+            menu: '#myMenu',
+            css3: true,
+            scrollingSpeed: 1000,
+            fixedElements: '.next',
+            onLeave: function(origin, destination, direction) {
+                var leavingSection = $(this);
+                if (origin == 2 && direction == "down") {
+                    $('.next').hide('fast');
+                } else if (origin == 3 && direction == "up") {
+                    $('.next').show('fast');
+                }
+            },
+
+        });
+
+    });
+</script>
+
+<script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+</script>
+
+</html>
